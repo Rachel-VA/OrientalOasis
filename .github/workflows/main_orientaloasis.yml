@@ -1,66 +1,45 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy ASP.Net Core app to Azure Web App - OrientalOasis
+name: .NET Core
 
 on:
   push:
     branches:
       - main
-  workflow_dispatch:
 
 jobs:
   build:
-    runs-on: windows-latest
+
+    runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Set up .NET Core
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: '3.1'
-          include-prerelease: true
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '5.0.x'
 
-      - name: Build with dotnet
-        run: dotnet build --configuration Release
+    - name: Restore dependencies
+      run: dotnet restore Oriental_Oasis_Web/Oriental_Oasis_Web.sln
 
-      - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+    - name: Build
+      run: dotnet build Oriental_Oasis_Web/Oriental_Oasis_Web.sln --configuration Release
 
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v3
-        with:
-          name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+    - name: Publish
+      run: dotnet publish Oriental_Oasis_Web/Oriental_Oasis_Web.sln --configuration Release --output ./output
 
-  deploy:
-    runs-on: windows-latest
-    needs: build
-    environment:
-      name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    permissions:
-      id-token: write #This is required for requesting the JWT
+    - name: Deploy to Azure
+      uses: Azure/webapps-deploy@v2
+      with:
+        app-name: <your-app-name>
+        slot-name: production
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
 
-    steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v3
-        with:
-          name: .net-app
-      
-      - name: Login to Azure
-        uses: azure/login@v1
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_243EA15EAD0140C283792BDFD56E0514 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_FA414D72E909498EAB7ACBB8BB7D86E4 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_7D4B24631545490E9FFEA77D8F265ABF }}
-
-      - name: Deploy to Azure Web App
-        id: deploy-to-webapp
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: 'OrientalOasis'
-          slot-name: 'Production'
-          package: .
-          
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: dotnet-app
+        path: ./output
