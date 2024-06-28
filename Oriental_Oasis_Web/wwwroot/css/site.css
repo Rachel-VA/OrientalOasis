@@ -1,0 +1,201 @@
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+.badge {
+    background-color: rgba(189, 116, 24, 0.6);
+    color: white;
+}
+
+.card {
+    border-color: #425F4B !important;
+}
+
+/* btn-outline-primary */
+
+.btn-outline-primary {
+    color: #192E2F;
+    border-color: #192E2F;
+}
+
+    .btn-outline-primary:hover {
+        color: #fff;
+        background-color: #192E2F;
+        border-color: #192E2F;
+    }
+
+    .btn-check:focus + .btn-outline-primary, .btn-outline-primary:focus {
+        box-shadow: 0 0 0 0.25rem rgba(25, 46, 47, 0.5);
+    }
+
+    .btn-check:checked + .btn-outline-primary,
+    .btn-check:active + .btn-outline-primary, .btn-outline-primary:active, .btn-outline-primary.active, .btn-outline-primary.dropdown-toggle.show {
+        color: #fff;
+        background-color: #192E2F;
+        border-color: #192E2F;
+    }
+
+        .btn-check:checked + .btn-outline-primary:focus,
+        .btn-check:active + .btn-outline-primary:focus, .btn-outline-primary:active:focus, .btn-outline-primary.active:focus, .btn-outline-primary.dropdown-toggle.show:focus {
+            box-shadow: 0 0 0 0.25rem rgba(25, 46, 47, 0.5);
+        }
+
+    .btn-outline-primary:disabled, .btn-outline-primary.disabled {
+        color: #192E2F;
+        background-color: transparent;
+    }
+
+/* Custom styles for navbar and footer */
+.navbar {
+    background-color: #000 !important; /* Set navbar background to black */
+}
+
+.navbar .navbar-brand, .navbar .nav-link, .navbar .dropdown-item {
+    color: #ffd800ff !important; /* Set navbar text to yellow */
+}
+
+.navbar .nav-link:hover, .navbar .dropdown-item:hover {
+   
+    background-color: deepskyblue !important; 
+  
+}
+
+
+.footer {
+    background-color: #000 !important; /* Set footer background to black */
+    color: #ffd800ff !important; /* Set footer text to yellow */
+}
+
+.footer a {
+color: #ffd800ff !important; /* Set footer link text to yellow */
+}
+
+        
+
+/* Other button styles */
+
+.btn-danger {
+    color: #fff;
+    background-color: #CA1929;
+    border-color: #CA1929;
+}
+
+    .btn-danger:hover {
+        color: #fff;
+        background-color: #b84743;
+        border-color: #ae423f;
+    }
+
+    .btn-check:focus + .btn-danger, .btn-danger:focus {
+        color: #fff;
+        background-color: #d9534f;
+        border-color: #d9534f;
+        box-shadow: 0 0 0 0.25rem rgba(223, 109, 105, 0.5);
+    }
+
+    .btn-check:checked + .btn-danger,
+    .btn-check:active + .btn-danger, .btn-danger:active, .btn-danger.active,
+    .show > .btn-danger.dropdown-toggle {
+        color: #fff;
+        background-color: #b84743;
+        border-color: #b84743;
+    }
+
+        .btn-check:checked + .btn-danger:focus,
+        .btn-check:active + .btn-danger:focus, .btn-danger:active:focus, .btn-danger.active:focus,
+        .show > .btn-danger.dropdown-toggle:focus {
+            box-shadow: 0 0 0 0.25rem rgba(223, 109, 105, 0.5);
+        }
+
+    .btn-danger:disabled, .btn-danger.disabled {
+        color: #fff;
+        background-color: #b84743;
+        border-color: #b84743;
+    }
+
+/* btn-success */
+
+.btn-success {
+    color: #fff;
+    background-color: #4b7147;
+    border-color: #4b7147;
+}
+
+    .btn-success:hover {
+        color: #fff;
+        background-color: #578553;
+        border-color: #578553;
+    }
+
+    .btn-check:focus + .btn-success, .btn-success:focus {
+        color: #fff;
+        background-color: #578553;
+        border-color: #578553;
+        box-shadow: 0 0 0 0.25rem rgba(60, 60, 60, 0.5);
+    }
+
+    .btn-check:checked + .btn-success,
+    .btn-check:active + .btn-success, .btn-success:active, .btn-success.active,
+    .show > .btn-success.dropdown-toggle {
+        color: #fff;
+        background-color: #578553;
+        border-color: #578553;
+    }
+
+        .btn-check:checked + .btn-success:focus,
+        .btn-check:active + .btn-success:focus, .btn-success:active:focus, .btn-success.active:focus,
+        .show > .btn-success.dropdown-toggle:focus {
+            box-shadow: 0 0 0 0.25rem rgba(60, 60, 60, 0.5);
+        }
+
+    .btn-success:disabled, .btn-success.disabled {
+        color: #fff;
+        background-color: #578553;
+        border-color: #578553;
+    }
+
+
+
